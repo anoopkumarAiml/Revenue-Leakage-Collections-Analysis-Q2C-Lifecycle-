@@ -1,0 +1,35 @@
+import pandas as pd
+import os
+from sqlalchemy import create_engine
+import logging
+import time
+
+logging.basicConfig(filename = "dataingestion.log",
+                      level = logging.DEBUG, 
+                      format = "%(asctime)s-%(levelname)s - %(message)s",
+                     filemode= "a"
+)
+
+engine  = create_engine("mysql+pymysql://root:%40Vasvikas83@localhost/q2c")
+
+def ingest_db(df, table_name, engine):
+    df.to_sql(table_name, con = engine, if_exists = "replace", index = False)
+def load_raw_data():
+    """This function is used to load the raw data from the data folder and ingest it into the database"""
+    start = time.time()
+    base_path = os.path.join(os.path.dirname(__file__), "..", "Data")
+    base_path = os.path.abspath(base_path)
+
+    for file in os.listdir(base_path):
+        if ".csv" in file:
+            df = pd.read_csv(os.path.join(base_path, file))
+            logging.info(f'Ingesting {file} in db')
+            ingest_db(df, file[:-4], engine)
+    end = time.time()
+    total_time = (end - start)/60
+    logging.info("----------Ingestion Complete----------")
+    logging.info(f"\nTotal Time Taken: {total_time} minutes")
+
+
+if __name__ == "__main__":
+    load_raw_data()

@@ -1,0 +1,5 @@
+plan_id,plan_name,billing_type,list_price,currency,is_active,max_discount_percent
+BM,Base,Monthly,400,USD,1,10
+PM,Pro,Monthly,1000,USD,1,25
+BY,Base,Yearly,4000,USD,1,10
+PY,Pro,Yearly,10000,USD,1,15

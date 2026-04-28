@@ -1,0 +1,11 @@
+2026-04-22 12:04:34,753-INFO - Ingesting collections.csv in db
+2026-04-22 12:04:37,639-INFO - Ingesting contracts.csv in db
+2026-04-22 12:04:39,730-INFO - Ingesting cpq_quote.csv in db
+2026-04-22 12:04:43,665-INFO - Ingesting customer_summary.csv in db
+2026-04-22 12:04:44,685-INFO - Ingesting invoices.csv in db
+2026-04-22 12:04:52,221-INFO - Ingesting payments.csv in db
+2026-04-22 12:04:58,317-INFO - Ingesting pricing_master.csv in db
+2026-04-22 12:04:58,637-INFO - Ingesting subscriptions.csv in db
+2026-04-22 12:04:59,710-INFO - ----------Ingestion Complete----------
+2026-04-22 12:04:59,711-INFO - 
+Total Time Taken: 0.44038224617640176 minutes
