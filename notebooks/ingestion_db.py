@@ -10,11 +10,13 @@ logging.basicConfig(filename = "dataingestion.log",
                      filemode= "a"
 )
 
-engine  = create_engine("mysql+pymysql://root:%40Vasvikas83@localhost/q2c")
+engine  = create_engine("mysql+pymysql://root:Password@localhost/q2c")
 
 def ingest_db(df, table_name, engine):
     df.to_sql(table_name, con = engine, if_exists = "replace", index = False)
+
 def load_raw_data():
+
     """This function is used to load the raw data from the data folder and ingest it into the database"""
     start = time.time()
     base_path = os.path.join(os.path.dirname(__file__), "..", "Data")
